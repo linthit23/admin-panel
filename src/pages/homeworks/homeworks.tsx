@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 import { useBaseFilters } from '../../hooks/useBaseFilters'
 import { useGetHomeworks } from './api/get-homeworks'
 import { Table } from '../../components/common'
+import { HomeworkForm } from './homework.form'
 
 export const Homeworks = () => {
   const { limit, skip, page, onPageChange } = useBaseFilters()
@@ -24,6 +25,10 @@ export const Homeworks = () => {
 
   return (
     <div className="p-4">
+      <div className="mb-4 flex justify-end">
+        <HomeworkForm />
+      </div>
+
       <Table
         data={homeworks?.data || []}
         columns={columns}

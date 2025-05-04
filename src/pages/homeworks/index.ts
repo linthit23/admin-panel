@@ -1,3 +1,5 @@
 export * from './homeworks'
 export * from './homeworks.type'
 export * from './api/get-homeworks'
+export * from './api/add-homework'
+export * from './homework.form'
