@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 import { useBaseFilters } from '../../hooks/useBaseFilters'
 import { useGetAlerts } from './api/get-alerts'
 import { Table } from '../../components/common'
+import { AlertForm } from './alert.form'
 
 export const Alerts = () => {
   const { limit, skip, page, onPageChange } = useBaseFilters()
@@ -31,6 +32,10 @@ export const Alerts = () => {
 
   return (
     <div className="p-4">
+      <div className="mb-4 flex justify-end">
+        <AlertForm />
+      </div>
+
       <Table
         data={alerts?.data || []}
         columns={columns}

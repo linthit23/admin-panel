@@ -1,3 +1,5 @@
 export * from './alerts'
 export * from './alerts.type'
 export * from './api/get-alerts'
+export * from './api/add-alert'
+export * from './alert.form'
