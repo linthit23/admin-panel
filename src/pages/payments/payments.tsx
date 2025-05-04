@@ -1,8 +1,9 @@
 import dayjs from 'dayjs'
 import { useBaseFilters } from '../../hooks/useBaseFilters'
 import { useGetPayments } from './api/get-payments'
-import { LoadingOverlay } from '@mantine/core'
+import { Button, LoadingOverlay } from '@mantine/core'
 import { Table } from '../../components/common'
+import { PaymentForm } from './payment.form'
 
 export const Payments = () => {
   const { limit, skip, page, onPageChange } = useBaseFilters()
@@ -21,10 +22,23 @@ export const Payments = () => {
       value: 'dueDate',
       render: (value: string) => dayjs(value).format('DD MMM YYYY'),
     },
+    {
+      label: 'Detail',
+      value: '_id',
+      render: (value: string) => (
+        <Button component="a" href={`/payments/${value}`}>
+          Detail
+        </Button>
+      ),
+    },
   ]
 
   return (
     <div className="p-4">
+      <div className="mb-4 flex justify-end">
+        <PaymentForm />
+      </div>
+
       <LoadingOverlay
         visible={isLoading}
         loaderProps={{ type: 'bars', color: 'primary' }}
