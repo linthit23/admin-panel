@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 import { useBaseFilters } from '../../hooks/useBaseFilters'
 import { useGetStudents } from './api/get-students'
 import { Table } from '../../components/common'
+import { StudentForm } from './student.form'
 
 export const Students = () => {
   const { limit, skip, page, onPageChange } = useBaseFilters()
@@ -26,6 +27,10 @@ export const Students = () => {
 
   return (
     <div className="p-4">
+      <div className="mb-4 flex justify-end">
+        <StudentForm />
+      </div>
+
       <Table
         data={students?.data || []}
         columns={columns}

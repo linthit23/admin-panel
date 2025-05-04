@@ -1,3 +1,5 @@
 export * from './students'
 export * from './students.type'
 export * from './api/get-students'
+export * from './api/add-student'
+export * from './student.form'
