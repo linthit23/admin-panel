@@ -1,3 +1,5 @@
 export * from './bookings'
 export * from './bookings.type'
 export * from './api/get-bookings'
+export * from './api/update-booking-status'
+export * from './update-booking-status'

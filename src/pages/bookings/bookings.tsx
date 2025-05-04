@@ -4,6 +4,7 @@ import { useGetBookings } from './api/get-bookings'
 import { Student } from '../students'
 import { Facility } from '../facilities'
 import { Table } from '../../components/common'
+import { UpdateBookingStatus } from './update-booking-status'
 
 export const Bookings = () => {
   const { limit, skip, page, onPageChange } = useBaseFilters()
@@ -32,7 +33,14 @@ export const Bookings = () => {
       value: 'facility',
       render: (value: Facility) => value.name,
     },
+    { label: 'Number of People', value: 'number_of_people' },
     { label: 'Status', value: 'status' },
+    {
+      label: 'Actions',
+      render: (value: any) => (
+        <UpdateBookingStatus bookingId={value._id} current={value.status} />
+      ),
+    },
   ]
 
   return (
