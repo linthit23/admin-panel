@@ -46,7 +46,7 @@ export const ClassForm = () => {
   const onCancel = () => {
     close()
     reset()
-    queryClient.invalidateQueries({ queryKey: ['classess'] })
+    queryClient.invalidateQueries({ queryKey: ['classes'] })
   }
 
   const handleTimePickerChange = (time: string, key: 'start' | 'end') => {

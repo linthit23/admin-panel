@@ -2,6 +2,7 @@ import dayjs from 'dayjs'
 import { useBaseFilters } from '../../hooks/useBaseFilters'
 import { useGetFacilities } from './api/get-facilities'
 import { Table } from '../../components/common'
+import { FacilityForm } from './facility.form'
 
 export const Facilities = () => {
   const { limit, skip, page, onPageChange } = useBaseFilters()
@@ -19,6 +20,10 @@ export const Facilities = () => {
 
   return (
     <div className="p-4">
+      <div className="mb-4 flex justify-end">
+        <FacilityForm />
+      </div>
+
       <Table
         data={facilities?.data || []}
         columns={columns}

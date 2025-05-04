@@ -1,3 +1,5 @@
 export * from './facilities'
 export * from './api/get-facilities'
 export * from './facilities.type'
+export * from './api/add-facility'
+export * from './facility.form'
