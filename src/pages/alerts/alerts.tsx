@@ -1,7 +1,6 @@
 import dayjs from 'dayjs'
 import { useBaseFilters } from '../../hooks/useBaseFilters'
 import { useGetAlerts } from './api/get-alerts'
-import { LoadingOverlay } from '@mantine/core'
 import { Table } from '../../components/common'
 
 export const Alerts = () => {
@@ -32,15 +31,10 @@ export const Alerts = () => {
 
   return (
     <div className="p-4">
-      <LoadingOverlay
-        visible={isLoading}
-        loaderProps={{ type: 'bars', color: 'primary' }}
-        bg="#000"
-      />
-
       <Table
         data={alerts?.data || []}
         columns={columns}
+        loading={isLoading}
         pagination={{
           current: page,
           count: alerts?.count || 0,

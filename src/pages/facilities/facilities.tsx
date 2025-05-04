@@ -1,7 +1,6 @@
 import dayjs from 'dayjs'
 import { useBaseFilters } from '../../hooks/useBaseFilters'
 import { useGetFacilities } from './api/get-facilities'
-import { LoadingOverlay } from '@mantine/core'
 import { Table } from '../../components/common'
 
 export const Facilities = () => {
@@ -20,15 +19,10 @@ export const Facilities = () => {
 
   return (
     <div className="p-4">
-      <LoadingOverlay
-        visible={isLoading}
-        loaderProps={{ type: 'bars', color: 'primary' }}
-        bg="#000"
-      />
-
       <Table
         data={facilities?.data || []}
         columns={columns}
+        loading={isLoading}
         pagination={{
           current: page,
           count: facilities?.count || 0,

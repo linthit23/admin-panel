@@ -1,4 +1,3 @@
-import { LoadingOverlay } from '@mantine/core'
 import { Table } from '../../components/common'
 import { useGetClasses } from './api/get-classes'
 import dayjs from 'dayjs'
@@ -32,15 +31,10 @@ export const Classes = () => {
 
   return (
     <div className="p-4">
-      <LoadingOverlay
-        visible={isLoading}
-        loaderProps={{ type: 'bars', color: 'primary' }}
-        bg="#000"
-      />
-
       <Table
         data={classes?.data || []}
         columns={columns}
+        loading={isLoading}
         pagination={{
           current: page,
           count: classes?.count || 0,

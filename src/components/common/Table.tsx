@@ -1,4 +1,4 @@
-import { Table as MantineTable, Pagination } from '@mantine/core'
+import { Loader, Table as MantineTable, Pagination } from '@mantine/core'
 import { ReactNode } from 'react'
 
 export type TableColumn = {
@@ -14,6 +14,7 @@ export type TableProps<T extends Record<string, any>> = {
   striped?: boolean
   highlightOnHover?: boolean
   noDataMsg?: ReactNode
+  loading?: boolean
   pagination?: {
     current: number
     count: number
@@ -28,6 +29,7 @@ export const Table = <T extends Record<string, any>>({
   noDataMsg = 'No Data',
   striped = true,
   highlightOnHover = false,
+  loading = false,
   pagination,
   trClassName,
 }: TableProps<T>) => {
@@ -57,6 +59,7 @@ export const Table = <T extends Record<string, any>>({
           </MantineTable.Thead>
 
           <MantineTable.Tbody>
+            {loading && <Loader type="bars" />}
             {!data?.length ? (
               <MantineTable.Tr>
                 <MantineTable.Td

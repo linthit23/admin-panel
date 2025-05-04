@@ -1,7 +1,6 @@
 import dayjs from 'dayjs'
 import { useBaseFilters } from '../../hooks/useBaseFilters'
 import { useGetHomeworks } from './api/get-homeworks'
-import { LoadingOverlay } from '@mantine/core'
 import { Table } from '../../components/common'
 
 export const Homeworks = () => {
@@ -25,15 +24,10 @@ export const Homeworks = () => {
 
   return (
     <div className="p-4">
-      <LoadingOverlay
-        visible={isLoading}
-        loaderProps={{ type: 'bars', color: 'primary' }}
-        bg="#000"
-      />
-
       <Table
         data={homeworks?.data || []}
         columns={columns}
+        loading={isLoading}
         pagination={{
           current: page,
           count: homeworks?.count || 0,
