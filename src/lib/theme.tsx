@@ -1,7 +1,7 @@
-import { createTheme } from '@mantine/core'
+import { Button, createTheme } from '@mantine/core'
 
 export const theme = createTheme({
-  fontFamily: 'Inter, sans-serif',
+  fontFamily: 'Poppins',
   primaryColor: 'primary',
   primaryShade: 4,
   colors: {
@@ -17,5 +17,10 @@ export const theme = createTheme({
       '#99e9ff',
       '#99e9ff',
     ],
+  },
+  components: {
+    Button: Button.extend({
+      defaultProps: { classNames: { label: 'text-gray-700' } },
+    }),
   },
 })
