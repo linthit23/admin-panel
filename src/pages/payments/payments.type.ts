@@ -3,7 +3,6 @@ import { Student } from '../students'
 
 export type PaymentUser = {
   invoice: string
-  slip: string
   user: Student
   status: 'UNPAID' | 'PENDING' | 'PAID'
 }

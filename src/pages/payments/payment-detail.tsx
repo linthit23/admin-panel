@@ -3,7 +3,7 @@ import { useGetPaymentById } from './api/get-payment-by-id'
 import dayjs from 'dayjs'
 import { Table } from '../../components/common'
 import { Student } from '../students'
-import { Button, Image, Modal, Select } from '@mantine/core'
+import { Button, Modal, Select } from '@mantine/core'
 import { useDisclosure } from '@mantine/hooks'
 import { notification, queryClient } from '../../lib'
 import { useState } from 'react'
@@ -124,11 +124,6 @@ export const PaymentDetail = () => {
         <div className="mb-2">
           <span className="font-semibold mb-2">Invoice</span>
           <div className="text-sm">{selectedUser?.invoice}</div>
-        </div>
-
-        <div className="mb-2">
-          <span className="font-semibold mb-2">Slip</span>
-          <Image src={selectedUser?.slip} radius={'lg'} />
         </div>
 
         <div className="mb-4">
